@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://kit.fontawesome.com/26a692bc87.js" crossorigin="anonymous"></script>
+    <title> Cases </title>
+    <style>
+        .navbar-brand {
+            margin-left: 20px;
+            margin-top: 2px;
+        }
+
+        .nav-item {
+            margin: 10px;
+            /* margin-top: 2px; */
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 24px;
+            font-family: 'Poppins', sans-serif;
+            ;
+        }
+
+        .footer{
+            background-image: linear-gradient(to right,#4E65FF,#92EFFD);
+            position: relative;
+            top: 20vh;
+            
+        }
+
+        .bg{
+            padding: 2%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 3%;
+            margin-bottom: 3%;
+            border:dashed purple;
+            border-radius: 10px;
+            width: 80%;
+        }
+        
+        span{
+            margin:2%;
+            color: purple;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        i{
+            margin-right: 10px;
+        }
+         
+        .btn{
+
+            margin: 10px;
+        }
+        @media only screen and (min-width:600px) and (max-width:670px) {
+            .card{
+                width:275px;
+            }
+        }
+        @media only screen and (min-width:900px) and (max-width:970px) {
+            .card{
+                width:275px;
+            }
+        }
+        @media only screen and (min-width:1200px) and (max-width:1270px) {
+            .card{
+                width:275px;
+            }
+        }
+        @media only screen and (min-width:1500px) and (max-width:1570px) {
+            .card{
+                width:275px;
+            }
+        }
+
+        .btne,.btnd{
+            width: 100px;
+        }
+
+        .btns{
+            display: flex;
+            justify-content: space-around;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <% if(current.isRegistrer) { %>
+
+        <nav class="navbar navbar-expand-lg navbar-light py-2" style=" background-image:linear-gradient(to right,#4E65FF,#92EFFD) ; ">
+            <a class="navbar-brand" href="/"
+                style="font-size:1.75rem; font-family: 'Comic Sans MS', 'Comic Sans', cursive;color: white;"> JIS </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#loginnavbar"
+                aria-controls="loginnavbar" aria-expanded="false" aria-label="Toggle navigation" style="color:white;">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="loginnavbar">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item " >
+                        <a class="nav-link" href="/about" style="color: white;">About</a>
+                    </li>
+                    <li class="nav-item " >
+                        <a class="nav-link"  style="color: white;">Add new Judge/Lawyer</a>
+                        <ul class="dropdown">
+                            <li><a  data-bs-toggle="modal" data-bs-target="#staticBackdrop1"> Add Judge</a></li>
+                            <li><a  data-bs-toggle="modal" data-bs-target="#staticBackdrop2" >Add Lawyer</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signout" style="color: white;">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+     
+        <% } %>
+    
+        <% if(current.isLawer) { %>
+    
+        <nav class="navbar navbar-expand-lg navbar-light py-2" style=" background-image:linear-gradient(to right,#4E65FF,#92EFFD) ; ">
+            <a class="navbar-brand" href="/"
+                style="font-size:1.75rem; font-family: 'Comic Sans MS', 'Comic Sans', cursive;color: white;"> JIS </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#loginnavbar"
+                aria-controls="loginnavbar" aria-expanded="false" aria-label="Toggle navigation" style="color:white;">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="loginnavbar">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item " >
+                        <a class="nav-link" href="/about" style="color: white;">About</a>
+                    </li>
+                    <li class="nav-item " >
+                        <a class="nav-link" href="/about" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" style="color: white;">Billing System</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signout" style="color: white;">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    
+        <% } %>
+    
+        <% if(current.isJudge) { %>
+    
+            <nav class="navbar navbar-expand-lg navbar-light py-2" style=" background-image:linear-gradient(to right,#4E65FF,#92EFFD) ; ">
+                <a class="navbar-brand" href="/"
+                    style="font-size:1.75rem; font-family: 'Comic Sans MS', 'Comic Sans', cursive;color: white;"> JIS </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#loginnavbar"
+                    aria-controls="loginnavbar" aria-expanded="false" aria-label="Toggle navigation" style="color:white;">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="loginnavbar">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item " >
+                            <a class="nav-link" href="/about" style="color: white;">About</a>
+                        </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="/signout" style="color: white;">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    
+        <% } %>
+
+
+        <div class="bg">
+        <span><i class="fa-solid fa-magnifying-glass"></i> <input placeholder="Search By CIN" id="searchByCIN" style="border:0;"> </span>
+        </div>
+        <div class="bg">
+        <span><i class="fa-solid fa-magnifying-glass"></i> <input placeholder="Search By Keyword" id="searchByKeyword" style="border:0;"> </span>
+        </div>  
+
+            <div class="row" style="padding-left: 30px; padding-right:30px ; width: 70%; margin-left: auto; margin-right: auto;" >
+                <table id="list" class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">CIN</th>
+                        <th scope="col">Case Status</th>
+                        <th scope="col">Title of the case</th>
+                        <th scope="col">Filing Date of case</th>
+                        <th scope="col">Details</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                        <% for(let i=0;i<cur.length;i++){ %>
+                            <tr>
+                                <th scope="row"> <%= cur[i].CIN %> </th>
+                                <% if(cur[i].closed) { %>
+                                    <td> Past </td>
+                                <% } %>
+                                <% var today=new Date(); %>
+                                <% if(cur[i].closed==false && cur[i].dateOfHearing.getDate()==(today).getDate() && cur[i].dateOfHearing.getMonth()==(today).getMonth() && cur[i].dateOfHearing.getYear()==(today).getYear()) { %>
+                                        <td> Active </td>
+                                <% } %>
+                                <% if(cur[i].closed==false && !(cur[i].dateOfHearing.getDate()==(today).getDate() && cur[i].dateOfHearing.getMonth()==(today).getMonth() && cur[i].dateOfHearing.getYear()==(today).getYear())) { %>
+                                        <td>Upcoming</td>
+                                <% } %>
+                                <td> <%= cur[i].caseTitle %> </td>
+                                <td> <%= cur[i].committedDate %> </td>
+                                <td><a href="/case/<%= cur[i].id %>" class="btn btn-primary">View More<i class="fa-solid fa-angles-right"></i></a>
+                                </td>
+                              </tr>
+                        <% } %>
+
+                    </tbody>
+                </table>
+            </div>
+   
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+    
+    <footer class="footer pb-3 w-100">
+        <div class="container text-center">
+            <span class=" footer_span" style="color: white;"> &copy; Judiciary Information System</span>
+        </div>
+        <div class="container text-center">
+            <span class=" footer_span" style="color: white;">
+                    Made with &#10084; by Group B13
+            </span>
+        </div>
+    </footer>
+
+    <!-- <%# console.log(cur) %> -->
+    
+    <script>
+        const listOfCases = <%- JSON.stringify(cur) %>;
+    </script>
+
+    <script>
+        console.log("ok");
+        var root = document.getElementById('list');
+        const searchBar = document.getElementById('searchByKeyword');
+        console.log(listOfCases);
+        searchBar.addEventListener('keyup', (e) => {
+            const searchString = e.target.value.toLowerCase();
+            const searchResults = listOfCases.filter((character) => {
+                return (
+                    // character.CIN.includes(searchString) ||
+                    character.caseTitle.toLowerCase().includes(searchString)
+                );
+            });
+            console.log( searchResults);
+            displayCharacters(searchResults);
+        })
+         
+        const displayCharacters = (characters) => {
+            if (characters.length === 0) {
+                root.innerHTML = `
+                <div class="py-3">
+                    <h3>No results have been found &#9785;</h3>
+                </div>`;
+                return 0;
+            };
+            const htmlString = characters
+                .map((character) => {
+                    var u = character;
+                    console.log(u)
+                    return `<tr>
+                                <th scope="row"> ${u.CIN} </th>
+                                <td> ${1>2? "ok1": "ok2"} </td>
+                                <td> 
+                                    ${ u.caseTitle }
+                                </td>
+                                <td> ${ u.committedDate.substr(0, 10) } </td>
+                                <td><a href="/case/${u.id}" class="btn btn-primary">View More<i class="fa-solid fa-angles-right"></i></a>
+                                </td>
+                              </tr>`
+                })
+                .join('');
+                console.log(10);
+                console.log(htmlString);
+            root.innerHTML = `<div class="row" style="padding-left: 30px; padding-right:30px ; width: 70%; margin-left: auto; margin-right: auto;" >
+                <table id="list" class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">CIN</th>
+                        <th scope="col">Case Status</th>
+                        <th scope="col">Title of the case</th>
+                        <th scope="col">Filing Date of case</th>
+                        <th scope="col">Details</th>
+                      </tr>
+                    </thead>
+                    <tbody>`+ htmlString + ` </tbody>
+                </table>
+            </div>` ;
+        };
+
+    </script>
+
+</body>
+</html>
